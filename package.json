@@ -1,0 +1,13 @@
+{
+  "name": "unimatch-nexus-foundation-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend and lightweight backend for the Unimatch Nexus Foundation website.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
