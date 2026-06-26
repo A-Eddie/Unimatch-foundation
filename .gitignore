@@ -1,2 +1,5 @@
 data/*.jsonl
 *.log
+.env
+.env.*
+!.env.example

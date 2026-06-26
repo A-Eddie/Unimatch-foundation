@@ -599,6 +599,89 @@
     box-shadow: 0 4px 20px rgba(245,124,0,.4);
   }
   .donate-btn.featured:hover { background: #E65100; }
+  .mpesa-form {
+    max-width: 760px;
+    margin: 2rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: clamp(1rem, 3vw, 1.35rem);
+    border-radius: 8px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(12px);
+  }
+  .mpesa-form .form-field { text-align: left; }
+  .mpesa-form .form-field-wide { grid-column: 1 / -1; }
+  .mpesa-form label {
+    color: rgba(255,255,255,.82);
+    font-size: .82rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: .4rem;
+  }
+  .mpesa-form input {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid rgba(255,255,255,.26);
+    border-radius: 8px;
+    background: rgba(255,255,255,.96);
+    color: var(--dark);
+    font: inherit;
+    padding: .75rem .95rem;
+  }
+  .mpesa-form select,
+  .mpesa-form textarea {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid rgba(255,255,255,.26);
+    border-radius: 8px;
+    background: rgba(255,255,255,.96);
+    color: var(--dark);
+    font: inherit;
+    padding: .75rem .95rem;
+  }
+  .mpesa-form textarea {
+    min-height: 96px;
+    resize: vertical;
+  }
+  .mpesa-form input:focus {
+    outline: none;
+    border-color: var(--sun);
+    box-shadow: 0 0 0 3px rgba(253,216,53,.24);
+  }
+  .mpesa-form select:focus,
+  .mpesa-form textarea:focus {
+    outline: none;
+    border-color: var(--sun);
+    box-shadow: 0 0 0 3px rgba(253,216,53,.24);
+  }
+  .mpesa-submit {
+    grid-column: 1 / -1;
+    align-self: end;
+    min-height: 48px;
+    border: none;
+    border-radius: 8px;
+    padding: .8rem 1.3rem;
+    background: var(--orange);
+    color: var(--white);
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .15s, background .2s;
+  }
+  .mpesa-submit:hover { background: #E65100; transform: translateY(-1px); }
+  .mpesa-submit:disabled { cursor: wait; opacity: .72; transform: none; }
+  .mpesa-status {
+    display: none;
+    max-width: 760px;
+    margin: 1rem auto 0;
+    padding: .95rem 1rem;
+    border-radius: 8px;
+    font-size: .92rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
   .mpesa-note {
     margin: 1.5rem auto 0; font-size: .88rem;
     color: rgba(255,255,255,.6);
@@ -611,6 +694,202 @@
   .contact-section {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: clamp(2rem, 5vw, 4rem); align-items: start; padding: clamp(4.5rem, 8vw, 6rem) 4vw;
+  }
+  .partner-section {
+    background: var(--white);
+  }
+  .partner-grid {
+    max-width: 1120px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .partner-points {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.8rem;
+  }
+  .partner-point {
+    padding: 1.1rem;
+    border-radius: 8px;
+    background: var(--light);
+    border-left: 4px solid var(--blue);
+  }
+  .partner-point:nth-child(2) { border-left-color: var(--green); }
+  .partner-point:nth-child(3) { border-left-color: var(--orange); }
+  .partner-point strong { display: block; color: var(--dark); margin-bottom: .25rem; }
+  .partner-point span { color: var(--muted); font-size: .92rem; line-height: 1.6; }
+  .press-section {
+    background: var(--light);
+  }
+  .press-grid {
+    max-width: 1120px;
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 1.5rem;
+  }
+  .press-card {
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--white);
+    border: 1px solid rgba(13,27,42,.07);
+    box-shadow: 0 6px 28px rgba(13,27,42,.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .press-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(13,27,42,.12);
+  }
+  .press-card.is-active {
+    border-color: rgba(27,79,216,.32);
+    box-shadow: 0 14px 42px rgba(27,79,216,.14);
+  }
+  .press-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+  }
+  .press-card-body { padding: 1.25rem; }
+  .press-card time {
+    display: block;
+    color: var(--orange);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: .55rem;
+  }
+  .press-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.22rem;
+    line-height: 1.2;
+    margin-bottom: .6rem;
+  }
+  .press-card h3 a {
+    color: var(--dark);
+    text-decoration: none;
+  }
+  .press-card h3 a:hover,
+  .press-card h3 a:focus-visible { color: var(--blue); }
+  .press-card p {
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.65;
+  }
+  .press-read-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    margin-top: .95rem;
+    color: var(--blue);
+    font-size: .85rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .press-read-link:hover { color: var(--orange); }
+  .press-reader {
+    max-width: 960px;
+    margin: 3rem auto 0;
+    padding: clamp(1.25rem, 4vw, 3rem);
+    border-radius: 8px;
+    background: var(--white);
+    border: 1px solid rgba(13,27,42,.08);
+    box-shadow: var(--shadow);
+    scroll-margin-top: 110px;
+    outline: none;
+  }
+  .press-reader:focus-visible {
+    box-shadow: 0 0 0 4px rgba(27,79,216,.16), var(--shadow);
+  }
+  .press-reader-header,
+  .press-reader-content,
+  .press-reader-footer {
+    max-width: 72ch;
+    margin-inline: auto;
+  }
+  .press-back-link {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1.15rem;
+    color: var(--blue);
+    font-size: .86rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .press-back-link:hover,
+  .press-back-link:focus-visible {
+    color: var(--orange);
+  }
+  .press-reader-kicker {
+    display: block;
+    color: var(--orange);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: .65rem;
+  }
+  .press-reader h3 {
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.65rem, 3vw, 2.4rem);
+    line-height: 1.12;
+    margin-bottom: .8rem;
+  }
+  .press-reader-meta {
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .press-reader img {
+    width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: .5rem 0 1.75rem;
+  }
+  .press-reader-content {
+    color: var(--text);
+    font-size: clamp(1.02rem, 1.3vw, 1.1rem);
+    line-height: 1.92;
+  }
+  .press-reader-content p {
+    margin: 0;
+  }
+  .press-reader-content p + p { margin-top: 1.15rem; }
+  .press-reader-content p:first-child::first-letter {
+    float: left;
+    color: var(--blue);
+    font-family: 'Playfair Display', serif;
+    font-size: 3.3rem;
+    line-height: .9;
+    padding: .18rem .38rem 0 0;
+  }
+  .press-reader-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(13,27,42,.08);
+    color: var(--muted);
+    font-size: .92rem;
+  }
+  .press-reader-footer a {
+    color: var(--blue);
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .press-reader-footer a:hover,
+  .press-reader-footer a:focus-visible {
+    color: var(--orange);
   }
   .contact-info p { font-size: 1rem; line-height: 1.7; color: var(--muted); margin-top: 1rem; }
   .contact-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
@@ -766,6 +1045,7 @@
     .program-banner { min-height: 220px; }
     .program-body { max-width: none; }
     .contact-section { grid-template-columns: 1fr; }
+    .partner-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; }
     .footer-brand { grid-column: 1 / -1; }
     .form-row { grid-template-columns: 1fr; }
@@ -794,6 +1074,7 @@
     }
     .stat-label { text-align: right; }
     .program-banner { min-height: 200px; }
+    .mpesa-form { grid-template-columns: 1fr; }
     .footer-bottom { align-items: flex-start; flex-direction: column; }
   }
   @media (max-width: 480px) {
@@ -1197,16 +1478,184 @@
   <div class="donate-wrapper">
     <span class="section-label donate-label">Support Us</span>
     <h2 class="section-title">Change a Life Today</h2>
-    <p class="section-desc">Every shilling you give educates, empowers, and uplifts a young Kenyan. Choose how you'd like to contribute.</p>
+    <p class="section-desc">Every shilling you give educates, empowers, and uplifts a young Kenyan. Choose your amount, fill in your details, and donate by M-Pesa or bank transfer.</p>
     <div class="donate-options">
-      <a href="mailto:donate@unimatchnexus.org" class="donate-btn">KES 500</a>
-      <a href="mailto:donate@unimatchnexus.org" class="donate-btn">KES 1,000</a>
-      <a href="mailto:donate@unimatchnexus.org" class="donate-btn featured">KES 5,000</a>
-      <a href="mailto:donate@unimatchnexus.org" class="donate-btn">KES 10,000</a>
-      <a href="mailto:donate@unimatchnexus.org" class="donate-btn">Custom Amount</a>
+      <button type="button" class="donate-btn" data-amount="500">KES 500</button>
+      <button type="button" class="donate-btn" data-amount="1000">KES 1,000</button>
+      <button type="button" class="donate-btn featured" data-amount="5000">KES 5,000</button>
+      <button type="button" class="donate-btn" data-amount="10000">KES 10,000</button>
+      <button type="button" class="donate-btn" data-amount="">Custom Amount</button>
     </div>
-    <p class="mpesa-note">M-Pesa Paybill: <strong>522522</strong> &nbsp;|&nbsp; Account: <strong>NEXUS-DONATE</strong> &nbsp;|&nbsp; Bank transfers available on request</p>
+    <form id="mpesaForm" class="mpesa-form" novalidate>
+      <div class="form-field">
+        <label for="donorName">Full Name</label>
+        <input type="text" id="donorName" name="donorName" placeholder="Your full name" autocomplete="name" required>
+      </div>
+      <div class="form-field">
+        <label for="donorEmail">Email Address</label>
+        <input type="email" id="donorEmail" name="donorEmail" placeholder="name@example.com" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="donorProgram">Program to Support</label>
+        <select id="donorProgram" name="program" required>
+          <option value="">Select a program</option>
+          <option value="Scholarship Fund">Scholarship Fund</option>
+          <option value="Youth Mentorship">Youth Mentorship</option>
+          <option value="Digital Skills Lab">Digital Skills Lab</option>
+          <option value="Girls in STEM">Girls in STEM</option>
+          <option value="Rural Outreach">Rural Outreach</option>
+          <option value="Entrepreneurship Hub">Entrepreneurship Hub</option>
+          <option value="General Donation">General Donation</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="paymentMethod">Payment Method</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="mpesa">M-Pesa STK Push</option>
+          <option value="bank">Bank Transfer</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="mpesaAmount">Donation Amount (KES)</label>
+        <input type="number" id="mpesaAmount" name="amount" min="1" max="150000" step="1" value="5000" required>
+      </div>
+      <div class="form-field">
+        <label for="mpesaPhone">Phone Number</label>
+        <input type="tel" id="mpesaPhone" name="phone" placeholder="07XXXXXXXX" autocomplete="tel">
+      </div>
+      <div class="form-field form-field-wide">
+        <label for="donorNote">Message or Dedication (Optional)</label>
+        <textarea id="donorNote" name="note" placeholder="Tell us what inspired your gift, or leave a dedication."></textarea>
+      </div>
+      <button type="submit" class="mpesa-submit">Donate</button>
+    </form>
+    <div id="mpesaStatus" class="mpesa-status" role="status" aria-live="polite"></div>
+    <p class="mpesa-note">Available payment methods: <strong>M-Pesa STK Push</strong> and <strong>Bank Transfer</strong>. Account reference: <strong>NEXUS-DONATE</strong>.</p>
   </div>
+</section>
+
+<!-- PARTNER -->
+<section id="partner" class="partner-section">
+  <div class="centered">
+    <span class="section-label">Partner With Us</span>
+    <h2 class="section-title">Build Opportunity<br/>With Us.</h2>
+    <p class="section-desc">We work with institutions, companies, schools, foundations, and community organizations that want to expand education access across Kenya.</p>
+  </div>
+  <div class="partner-grid">
+    <div>
+      <div class="partner-points">
+        <div class="partner-point">
+          <strong>Corporate Partnerships</strong>
+          <span>Support scholarships, digital labs, mentorship days, STEM clubs, and employability programs through strategic giving or staff volunteering.</span>
+        </div>
+        <div class="partner-point">
+          <strong>School & Community Partners</strong>
+          <span>Help us identify students, host outreach activities, coordinate learning sessions, and keep support close to the communities we serve.</span>
+        </div>
+        <div class="partner-point">
+          <strong>Media & Knowledge Partners</strong>
+          <span>Tell stories of impact, document program outcomes, and help more donors discover credible ways to support young Kenyans.</span>
+        </div>
+      </div>
+    </div>
+    <form id="partnerForm" class="contact-form" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="organization">Organization</label>
+          <input type="text" id="organization" name="organization" placeholder="Company or institution" required>
+        </div>
+        <div class="form-field">
+          <label for="contactName">Contact Person</label>
+          <input type="text" id="contactName" name="contactName" placeholder="Full name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="partnerEmail">Email Address</label>
+          <input type="email" id="partnerEmail" name="partnerEmail" placeholder="name@organization.com" required>
+        </div>
+        <div class="form-field">
+          <label for="partnerPhone">Phone / WhatsApp</label>
+          <input type="tel" id="partnerPhone" name="partnerPhone" placeholder="+254..." />
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="partnerType">Partnership Type</label>
+        <select id="partnerType" name="partnerType" required>
+          <option value="">Select partnership type</option>
+          <option value="corporate">Corporate Partner</option>
+          <option value="school">School / University</option>
+          <option value="ngo">NGO / Foundation</option>
+          <option value="government">Government / Public Agency</option>
+          <option value="media">Media Partner</option>
+          <option value="donor">Donor / Funder</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="partnerInterest">Partnership Interest</label>
+        <textarea id="partnerInterest" name="partnerInterest" placeholder="Tell us how you would like to partner with Unimatch Nexus Foundation..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Partnership Request</button>
+      <div id="partnerStatus" role="status" aria-live="polite" style="display:none; margin-top:1rem; padding:1rem; border-radius:8px; font-size:.9rem;"></div>
+    </form>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section id="press" class="press-section">
+  <div class="centered">
+    <span class="section-label">Press & Media</span>
+    <h2 class="section-title">Stories From<br/>Our Work.</h2>
+    <p class="section-desc">A living newsroom of program highlights, field stories, and impact updates from Unimatch Nexus Foundation.</p>
+  </div>
+  <div class="press-grid">
+    <article class="press-card is-active" data-press-card="scholarship">
+      <img src="images/program-scholarship.png" alt="Students supported through the scholarship fund">
+      <div class="press-card-body">
+        <time datetime="2026-06-10">Impact Article</time>
+        <h3><a href="#press-reader" data-article="scholarship">Scholarships Keeping High-Potential Learners in Class</a></h3>
+        <p>Unimatch Nexus Foundation documented how targeted fee support, learning materials, and mentorship help students remain in school through difficult financial seasons.</p>
+        <a class="press-read-link" href="#press-reader" data-article="scholarship">Read full article →</a>
+      </div>
+    </article>
+    <article class="press-card" data-press-card="digital">
+      <img src="images/program-digital-skills.png" alt="Students in a digital skills session">
+      <div class="press-card-body">
+        <time datetime="2026-05-22">Program Feature</time>
+        <h3><a href="#press-reader" data-article="digital">Digital Skills Lab Opens New Pathways for Underserved Schools</a></h3>
+        <p>Our field teams captured learners building presentations, simple websites, and research projects while discovering technology as a doorway to opportunity.</p>
+        <a class="press-read-link" href="#press-reader" data-article="digital">Read full article →</a>
+      </div>
+    </article>
+    <article class="press-card" data-press-card="stem">
+      <img src="images/program-girls-stem.png" alt="Girls working together on a STEM activity">
+      <div class="press-card-body">
+        <time datetime="2026-04-18">Media Story</time>
+        <h3><a href="#press-reader" data-article="stem">Girls in STEM Clubs Build Confidence and Career Imagination</a></h3>
+        <p>Through role-model sessions and hands-on science activities, girls are seeing themselves as future engineers, doctors, founders, and researchers.</p>
+        <a class="press-read-link" href="#press-reader" data-article="stem">Read full article →</a>
+      </div>
+    </article>
+  </div>
+  <article id="press-reader" class="press-reader" tabindex="-1" aria-live="polite" hidden>
+    <div class="press-reader-header">
+      <a class="press-back-link" href="#press">&larr; Back to headlines</a>
+      <span class="press-reader-kicker" id="pressReaderKicker">Impact Article</span>
+      <h3 id="pressReaderTitle">Scholarships Keeping High-Potential Learners in Class</h3>
+      <div class="press-reader-meta" id="pressReaderMeta">June 10, 2026 · Unimatch Nexus Foundation Newsroom</div>
+    </div>
+    <img id="pressReaderImage" src="images/program-scholarship.png" alt="Students supported through the scholarship fund">
+    <div class="press-reader-content" id="pressReaderContent">
+      <p>Across Kenya, many promising learners face the same painful question every school term: will they remain in class, or will fees and basic learning costs push them out? Unimatch Nexus Foundation's Scholarship Fund exists to protect students at that fragile point where ambition is strong but resources are limited.</p>
+      <p>The foundation's scholarship work combines fee support with practical follow-up. Students receive help with tuition, learning materials, exam preparation, mentorship, and welfare checks so that support is not reduced to a single transaction. The goal is to keep students present, confident, and prepared for the next stage of their education.</p>
+      <p>For donors and partners, the story is simple: when a learner remains in school, an entire family moves closer to stability. The scholarship program continues to identify high-potential students whose futures can be changed through timely, accountable support.</p>
+    </div>
+    <div class="press-reader-footer">
+      <span>For interviews, field visits, or verified program updates.</span>
+      <a href="#contact">Contact the newsroom</a>
+    </div>
+  </article>
 </section>
 
 <!-- CONTACT -->
@@ -1315,7 +1764,7 @@
         <li><a href="#team">Our Team</a></li>
         <li><a href="#impact">Our Impact</a></li>
         <li><a href="#contact">Annual Reports</a></li>
-        <li><a href="#contact">Press & Media</a></li>
+        <li><a href="#press">Press & Media</a></li>
         <li><a href="#contact">Careers</a></li>
       </ul>
     </div>
@@ -1324,7 +1773,7 @@
       <ul>
         <li><a href="#donate">Donate</a></li>
         <li><a href="#contact">Volunteer</a></li>
-        <li><a href="#contact">Partner With Us</a></li>
+        <li><a href="#partner">Partner With Us</a></li>
         <li><a href="#contact">Apply for Support</a></li>
         <li><a href="#contact">Sponsor a Student</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1339,15 +1788,16 @@
           <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
       </a>
-      <a href="https://twitter.com/unimatch_nexus" class="social-btn" title="Unimatch Nexus Foundation on Twitter" aria-label="Unimatch Nexus Foundation Twitter">
+      <a href="https://x.com/unimatch_nexus" class="social-btn" title="Unimatch Nexus Foundation on X" aria-label="Unimatch Nexus Foundation X">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M23.953 4.57a10 10 0 002.856-3.915 10 10 0 01-2.836.856 5 5 0 002.191-2.761 10 10 0 01-3.172 1.212 5 5 0 00-8.506 4.557A14 14 0 011.064 6.81a5 5 0 001.55 6.684 5.002 5.002 0 01-2.267-.616v.06a5 5 0 004.009 4.903 5 5 0 01-2.26.086 5.03 5.03 0 004.666 3.472A10.013 10.013 0 010 19.542a14.053 14.053 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          <path d="M18.244 2H21.5l-7.11 8.123L22.75 22h-6.545l-5.126-6.7L5.21 22H1.95l7.604-8.69L1.53 2h6.71l4.633 6.126L18.244 2Zm-1.142 17.91h1.804L7.26 3.98H5.324l11.778 15.93Z"/>
         </svg>
       </a>
       <a href="https://instagram.com/unimatch_nexus" class="social-btn" title="Unimatch Nexus Foundation on Instagram" aria-label="Unimatch Nexus Foundation Instagram">
-        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.978 12c0 3.857-3.121 7-6.978 7s-6.978-3.143-6.978-7 3.121-7 6.978-7 6.978 3.143 6.978 7z"/>
-          <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="5.2"/>
+          <circle cx="12" cy="12" r="4.1"/>
+          <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
         </svg>
       </a>
       <a href="https://linkedin.com/company/unimatch-nexus-foundation" class="social-btn" title="Unimatch Nexus Foundation on LinkedIn" aria-label="Unimatch Nexus Foundation LinkedIn">
@@ -1694,6 +2144,243 @@
   });
 
   // ── INTERSECTION OBSERVER FOR ANIMATIONS ──
+  // M-Pesa STK Push donations
+  const partnerForm = document.getElementById('partnerForm');
+  const partnerStatus = document.getElementById('partnerStatus');
+
+  const setPartnerStatus = (type, message) => {
+    const isError = type === 'error';
+    partnerStatus.style.display = 'block';
+    partnerStatus.style.backgroundColor = isError ? 'rgba(198, 40, 40, 0.1)' : 'rgba(46, 125, 50, 0.1)';
+    partnerStatus.style.color = isError ? 'var(--red)' : 'var(--green)';
+    partnerStatus.textContent = message;
+  };
+
+  if (partnerForm) {
+    partnerForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const requiredFields = partnerForm.querySelectorAll('[required]');
+      let isValid = true;
+
+      requiredFields.forEach((field) => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = 'var(--red)';
+        } else {
+          field.style.borderColor = '#DDE3D8';
+        }
+      });
+
+      if (!isValid) {
+        setPartnerStatus('error', 'Please complete all required partnership fields.');
+        return;
+      }
+
+      const submitButton = partnerForm.querySelector('.form-submit');
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Submitting...';
+      setPartnerStatus('success', 'Submitting your partnership request...');
+
+      try {
+        const formData = new FormData(partnerForm);
+        const payload = Object.fromEntries(formData.entries());
+        const response = await fetch('/api/partner', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.ok) {
+          throw new Error(result.message || 'Please try again.');
+        }
+
+        setPartnerStatus('success', result.message);
+        partnerForm.reset();
+      } catch (error) {
+        setPartnerStatus('error', `We could not submit your partnership request. ${error.message}`);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+
+    partnerForm.querySelectorAll('[required]').forEach((field) => {
+      field.addEventListener('focus', () => {
+        field.style.borderColor = '#DDE3D8';
+      });
+    });
+  }
+
+  const mpesaForm = document.getElementById('mpesaForm');
+  const mpesaStatus = document.getElementById('mpesaStatus');
+  const mpesaAmount = document.getElementById('mpesaAmount');
+  const mpesaPhone = document.getElementById('mpesaPhone');
+  const donorName = document.getElementById('donorName');
+  const donorEmail = document.getElementById('donorEmail');
+  const donorProgram = document.getElementById('donorProgram');
+  const paymentMethod = document.getElementById('paymentMethod');
+
+  const setMpesaStatus = (type, message) => {
+    const isError = type === 'error';
+    mpesaStatus.style.display = 'block';
+    mpesaStatus.style.backgroundColor = isError ? 'rgba(255,255,255,.92)' : 'rgba(253,216,53,.95)';
+    mpesaStatus.style.color = isError ? 'var(--red)' : 'var(--dark)';
+    mpesaStatus.textContent = message;
+  };
+
+  document.querySelectorAll('[data-amount]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const amount = button.getAttribute('data-amount');
+      if (amount) mpesaAmount.value = amount;
+      mpesaAmount.focus();
+    });
+  });
+
+  if (mpesaForm) {
+    mpesaForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const amount = Number(mpesaAmount.value);
+      const phone = mpesaPhone.value.trim();
+      const name = donorName.value.trim();
+      const email = donorEmail.value.trim();
+      const program = donorProgram.value.trim();
+      const method = paymentMethod.value;
+
+      if (!name || !email || !program || !method || !Number.isFinite(amount) || amount < 1) {
+        setMpesaStatus('error', 'Fill in your name, email, program, payment method, and amount.');
+        return;
+      }
+
+      if (method === 'mpesa' && !phone) {
+        setMpesaStatus('error', 'Enter your Safaricom phone number for M-Pesa STK Push.');
+        return;
+      }
+
+      const submitButton = mpesaForm.querySelector('.mpesa-submit');
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = method === 'bank' ? 'Recording...' : 'Sending STK...';
+      setMpesaStatus('success', method === 'bank' ? 'Recording your bank transfer pledge...' : 'Sending the M-Pesa prompt to your phone...');
+
+      try {
+        const formData = new FormData(mpesaForm);
+        const payload = Object.fromEntries(formData.entries());
+        payload.amount = amount;
+
+        const response = await fetch('/api/donate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.ok) {
+          throw new Error(result.message || 'Payment request failed.');
+        }
+
+        if (result.paymentMethod === 'bank' && result.bankDetails) {
+          const bank = result.bankDetails;
+          setMpesaStatus(
+            'success',
+            `${result.message} Bank: ${bank.bankName}. Account Name: ${bank.accountName}. Account No: ${bank.accountNumber}. Branch: ${bank.branch}.`
+          );
+        } else {
+          setMpesaStatus('success', result.message);
+        }
+      } catch (error) {
+        setMpesaStatus('error', `Donation could not be processed. ${error.message}`);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  }
+
+  const pressArticles = {
+    scholarship: {
+      kicker: 'Impact Article',
+      title: 'Scholarships Keeping High-Potential Learners in Class',
+      meta: 'June 10, 2026 · Unimatch Nexus Foundation Newsroom',
+      image: 'images/program-scholarship.png',
+      alt: 'Students supported through the scholarship fund',
+      paragraphs: [
+        'Across Kenya, many promising learners face the same painful question every school term: will they remain in class, or will fees and basic learning costs push them out? Unimatch Nexus Foundation\'s Scholarship Fund exists to protect students at that fragile point where ambition is strong but resources are limited.',
+        'The foundation\'s scholarship work combines fee support with practical follow-up. Students receive help with tuition, learning materials, exam preparation, mentorship, and welfare checks so that support is not reduced to a single transaction. The goal is to keep students present, confident, and prepared for the next stage of their education.',
+        'Mentors also help learners build study plans, prepare for transitions, and speak honestly about the pressures they face at home and in school. This relationship matters because many students do not drop out because they lack talent; they drop out because nobody sees the warning signs early enough.',
+        'The program is intentionally accountable. Each supported learner is followed through school communication, family engagement, and program reviews so donors can see how their support turns into attendance, exam preparation, confidence, and a stronger pathway toward tertiary education or dignified work.',
+        'For donors and partners, the story is simple: when a learner remains in school, an entire family moves closer to stability. The scholarship program continues to identify high-potential students whose futures can be changed through timely, accountable support.'
+      ]
+    },
+    digital: {
+      kicker: 'Program Feature',
+      title: 'Digital Skills Lab Opens New Pathways for Underserved Schools',
+      meta: 'May 22, 2026 · Field Program Update',
+      image: 'images/program-digital-skills.png',
+      alt: 'Students in a digital skills session',
+      paragraphs: [
+        'The Digital Skills Lab was created from a practical reality: many students are expected to compete in a digital world without ever receiving meaningful access to digital tools. In underserved schools, a laptop, internet connection, or guided technology lesson can change how a learner imagines their future.',
+        'During recent sessions, students practiced research, presentations, basic coding, online safety, and design thinking. They learned by building, not by watching. That hands-on approach helps learners understand technology as a tool for schoolwork, employment, creativity, business, and community problem-solving.',
+        'Teachers and facilitators are also part of the model. By supporting the adults around learners, the foundation helps schools continue digital learning after a workshop ends, making technology less of a special event and more of a normal part of education.',
+        'The lab is designed for practical outcomes: students leave with stronger confidence, a better understanding of online safety, and the ability to create simple digital work they can show to teachers, parents, and future mentors. That visible progress is what keeps learners engaged.',
+        'Unimatch Nexus Foundation is expanding the lab model through partnerships that provide devices, trainers, internet access, and school-based learning days. Each session brings students one step closer to participating confidently in Kenya\'s digital economy.'
+      ]
+    },
+    stem: {
+      kicker: 'Media Story',
+      title: 'Girls in STEM Clubs Build Confidence and Career Imagination',
+      meta: 'April 18, 2026 · Program Story',
+      image: 'images/program-girls-stem.png',
+      alt: 'Girls working together on a STEM activity',
+      paragraphs: [
+        'Girls in STEM is one of the foundation\'s clearest investments in equity. The program gives girls safe, encouraging spaces to ask questions, test ideas, meet role models, and see science and technology as fields where they belong.',
+        'The clubs combine experiments, coding introductions, career talks, mentorship, and confidence-building sessions. These activities are designed to push back against the quiet messages that often discourage girls from technical subjects before they have had a fair chance to explore them.',
+        'The strongest moments often happen when girls present their work publicly. Speaking about a solution, answering questions, and seeing adults take their ideas seriously helps replace hesitation with ownership. The club becomes more than a lesson; it becomes a rehearsal for leadership.',
+        'Partnerships make this work stronger by bringing role models, learning materials, lab experiences, and career exposure closer to students who may not otherwise meet women working in technical fields. Every visit and every session widens what feels possible.',
+        'When a girl builds, presents, solves, and leads, her view of herself changes. Unimatch Nexus Foundation continues to grow Girls in STEM so more young women can imagine themselves as engineers, doctors, researchers, founders, and leaders in the industries shaping Kenya\'s future.'
+      ]
+    }
+  };
+
+  const renderPressArticle = (articleId) => {
+    const article = pressArticles[articleId];
+    if (!article) return;
+
+    const reader = document.getElementById('press-reader');
+    reader.hidden = false;
+
+    document.getElementById('pressReaderKicker').textContent = article.kicker;
+    document.getElementById('pressReaderTitle').textContent = article.title;
+    document.getElementById('pressReaderMeta').textContent = article.meta;
+
+    const image = document.getElementById('pressReaderImage');
+    image.src = article.image;
+    image.alt = article.alt;
+
+    const content = document.getElementById('pressReaderContent');
+    const paragraphNodes = article.paragraphs.map((paragraph) => {
+      const node = document.createElement('p');
+      node.textContent = paragraph;
+      return node;
+    });
+    content.replaceChildren(...paragraphNodes);
+
+    document.querySelectorAll('[data-press-card]').forEach((card) => {
+      card.classList.toggle('is-active', card.getAttribute('data-press-card') === articleId);
+    });
+  };
+
+  document.querySelectorAll('[data-article]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      renderPressArticle(link.getAttribute('data-article'));
+      const reader = document.getElementById('press-reader');
+      reader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      reader.focus({ preventScroll: true });
+    });
+  });
+
   const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 
   const observer = new IntersectionObserver((entries) => {
@@ -1707,7 +2394,7 @@
   }, observerOptions);
 
   // Observe elements for fade-in animation
-  ['.pillar-card', '.program-card', '.impact-card', '.team-card'].forEach(selector => {
+  ['.pillar-card', '.program-card', '.impact-card', '.team-card', '.partner-point', '.press-card'].forEach(selector => {
     document.querySelectorAll(selector).forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
