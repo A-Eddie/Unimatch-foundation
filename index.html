@@ -703,8 +703,8 @@
   }
   .payment-logo svg {
     width: 100%;
-    max-width: 88px;
-    height: 30px;
+    max-width: 104px;
+    height: 32px;
     display: block;
   }
   .payment-logo-mpesa strong {
@@ -1020,6 +1020,22 @@
     flex-wrap: wrap; gap: 1rem;
   }
   .footer-bottom p { font-size: .82rem; color: rgba(255,255,255,.4); }
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .75rem;
+    font-size: .82rem;
+  }
+  .footer-legal a {
+    color: rgba(255,255,255,.62);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-legal a:hover,
+  .footer-legal a:focus-visible {
+    color: var(--orange);
+  }
   .footer-payments {
     display: flex;
     align-items: center;
@@ -1039,8 +1055,8 @@
     padding: .25rem .45rem;
   }
   .footer-payment-logo svg {
-    width: 52px;
-    height: 20px;
+    width: 64px;
+    height: 22px;
     display: block;
   }
   .footer-payment-logo strong {
@@ -1517,10 +1533,10 @@
   </div>
   <div class="team-grid team-wrapper">
     <div class="team-card">
-      <div class="team-avatar ta-blue">JM</div>
-      <h4>Dr. James Mwangi</h4>
-      <div class="role">Executive Director</div>
-      <p class="bio">Former university dean with 20+ years in education policy and community development across Kenya.</p>
+      <div class="team-avatar ta-blue">EO</div>
+      <h4>Eng. Edrean Ochieng</h4>
+      <div class="role">President & CEO</div>
+      <p class="bio">Mechanical engineer and entrepreneur with a passion for education and community development.</p>
     </div>
     <div class="team-card">
       <div class="team-avatar ta-green">AW</div>
@@ -1564,23 +1580,49 @@
       <button type="button" class="donate-btn" data-amount="">Custom Amount</button>
     </div>
     <div class="payment-methods" aria-label="Accepted payment methods">
-      <div class="payment-logo payment-logo-mpesa" title="M-Pesa"><strong>M-PESA</strong></div>
-      <div class="payment-logo" title="Visa">
-        <svg viewBox="0 0 96 32" role="img" aria-label="Visa"><text x="6" y="23" fill="#1A1F71" font-size="22" font-weight="800" font-family="Arial, sans-serif">VISA</text></svg>
-      </div>
-      <div class="payment-logo" title="Mastercard">
-        <svg viewBox="0 0 96 32" role="img" aria-label="Mastercard">
-          <circle cx="38" cy="16" r="12" fill="#EB001B"></circle>
-          <circle cx="54" cy="16" r="12" fill="#F79E1B" opacity=".92"></circle>
-          <text x="13" y="30" fill="#111827" font-size="7" font-weight="700" font-family="Arial, sans-serif">mastercard</text>
+      <div class="payment-logo payment-logo-mpesa" title="M-Pesa">
+        <svg viewBox="0 0 120 36" role="img" aria-label="M-Pesa">
+          <path d="M12 5h20c3.3 0 6 2.7 6 6v14c0 3.3-2.7 6-6 6H12c-3.3 0-6-2.7-6-6V11c0-3.3 2.7-6 6-6Z" fill="#2E7D32"/>
+          <path d="M16 12h8l4 11 4-11h8v13h-5V17l-5 8h-4l-5-8v8h-5V12Z" fill="#fff"/>
+          <text x="46" y="24" fill="#1B8F3A" font-size="17" font-weight="900" font-family="Arial, sans-serif">M-PESA</text>
+          <path d="M101 10c5 1.8 8 4.8 10 9-5.3-.8-9.6-2.7-13-6.2l3-2.8Z" fill="#E53935"/>
         </svg>
       </div>
-      <div class="payment-logo payment-logo-amex" title="American Express"><strong>AMEX</strong></div>
+      <div class="payment-logo" title="Visa">
+        <svg viewBox="0 0 120 36" role="img" aria-label="Visa">
+          <path d="M18 25 24 10h8l-9 20h-8L10 10h8l3 12 5-12h7L18 25Zm19 5h-7l5-20h7l-5 20Zm27-19-1 6c-2-1-4-1.6-6-1.6-2 0-3 .6-3 1.5 0 1 1.2 1.5 3.6 2.5 4 1.7 5.7 3.5 5.6 6.1-.1 3.2-3.2 5-8 5-3.3 0-6.2-.8-8-1.9l1.1-6.2c1.8 1.2 4.4 2 6.9 2 2 0 3.2-.6 3.2-1.6 0-.9-1-1.5-3.9-2.7-3.4-1.5-5.1-3.2-5.1-5.8 0-3.1 3.1-5.2 7.7-5.2 2.8 0 5.1.6 6.9 1.4Zm17 19-.8-3h-8.6l-1.4 3h-7.4l10-20h8.9l5.8 20H81Zm-3.7-14-3 6.5H79L77.3 16Z" fill="#1A1F71"/>
+        </svg>
+      </div>
+      <div class="payment-logo" title="Mastercard">
+        <svg viewBox="0 0 120 36" role="img" aria-label="Mastercard">
+          <circle cx="50" cy="18" r="13" fill="#EB001B"></circle>
+          <circle cx="70" cy="18" r="13" fill="#F79E1B"></circle>
+          <path d="M60 8.5A13 13 0 0 1 60 27.5 13 13 0 0 1 60 8.5Z" fill="#FF5F00"></path>
+        </svg>
+      </div>
+      <div class="payment-logo payment-logo-amex" title="American Express">
+        <svg viewBox="0 0 120 36" role="img" aria-label="American Express">
+          <rect x="8" y="6" width="104" height="24" rx="4" fill="#2E77BC"/>
+          <text x="17" y="17" fill="#fff" font-size="9" font-weight="900" font-family="Arial, sans-serif" letter-spacing=".8">AMERICAN</text>
+          <text x="17" y="27" fill="#fff" font-size="12" font-weight="900" font-family="Arial, sans-serif" letter-spacing=".4">EXPRESS</text>
+        </svg>
+      </div>
       <div class="payment-logo" title="PayPal">
-        <svg viewBox="0 0 96 32" role="img" aria-label="PayPal"><text x="4" y="22" fill="#003087" font-size="18" font-weight="800" font-family="Arial, sans-serif">Pay</text><text x="38" y="22" fill="#009CDE" font-size="18" font-weight="800" font-family="Arial, sans-serif">Pal</text></svg>
+        <svg viewBox="0 0 120 36" role="img" aria-label="PayPal">
+          <path d="M18 8h15c5 0 8 3 7 7-1 5-5 8-11 8h-5l-2 7h-8l4-22Z" fill="#003087"/>
+          <path d="M25 13h14c4.6 0 7.4 2.8 6.5 6.8-1 4.8-4.8 7.6-10.6 7.6h-5l-1.3 5.6h-7.3L25 13Z" fill="#009CDE" opacity=".92"/>
+          <text x="50" y="24" fill="#003087" font-size="18" font-weight="900" font-family="Arial, sans-serif">Pay</text>
+          <text x="83" y="24" fill="#009CDE" font-size="18" font-weight="900" font-family="Arial, sans-serif">Pal</text>
+        </svg>
       </div>
       <div class="payment-logo" title="Google Pay">
-        <svg viewBox="0 0 96 32" role="img" aria-label="Google Pay"><text x="3" y="22" fill="#4285F4" font-size="18" font-weight="800" font-family="Arial, sans-serif">G</text><text x="22" y="22" fill="#202124" font-size="17" font-weight="700" font-family="Arial, sans-serif">Pay</text></svg>
+        <svg viewBox="0 0 120 36" role="img" aria-label="Google Pay">
+          <path d="M27.5 18.4c0-.9-.1-1.8-.2-2.6H16v4.8h6.4c-.3 1.6-1.1 2.9-2.4 3.8v3.1h3.9c2.3-2.1 3.6-5.2 3.6-9.1Z" fill="#4285F4"/>
+          <path d="M16 30c3.2 0 5.9-1.1 7.9-2.9L20 24c-1.1.7-2.4 1.1-4 1.1-3.1 0-5.8-2.1-6.7-5H5.2v3.2C7.2 27.3 11.3 30 16 30Z" fill="#34A853"/>
+          <path d="M9.3 20.1c-.2-.7-.4-1.4-.4-2.1s.1-1.4.4-2.1v-3.2H5.2A12 12 0 0 0 4 18c0 1.9.4 3.7 1.2 5.3l4.1-3.2Z" fill="#FBBC04"/>
+          <path d="M16 10.9c1.8 0 3.3.6 4.5 1.8l3.5-3.4C21.9 7.3 19.2 6 16 6c-4.7 0-8.8 2.7-10.8 6.7l4.1 3.2c.9-2.9 3.6-5 6.7-5Z" fill="#EA4335"/>
+          <text x="38" y="24" fill="#202124" font-size="18" font-weight="700" font-family="Arial, sans-serif">Pay</text>
+        </svg>
       </div>
     </div>
     <form id="mpesaForm" class="mpesa-form" novalidate>
@@ -1884,23 +1926,53 @@
   </div>
   <div class="footer-bottom footer-wrapper">
     <p>© 2026 Unimatch Nexus Foundation. All rights reserved. | Registered NGO in Kenya</p>
+    <div class="footer-legal" aria-label="Legal pages">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
     <div class="footer-payments" aria-label="Accepted payment methods">
-      <span class="footer-payment-logo footer-payment-logo-mpesa" title="M-Pesa"><strong>M-PESA</strong></span>
-      <span class="footer-payment-logo" title="Visa">
-        <svg viewBox="0 0 96 32" role="img" aria-label="Visa"><text x="6" y="23" fill="#1A1F71" font-size="22" font-weight="800" font-family="Arial, sans-serif">VISA</text></svg>
-      </span>
-      <span class="footer-payment-logo" title="Mastercard">
-        <svg viewBox="0 0 96 32" role="img" aria-label="Mastercard">
-          <circle cx="38" cy="16" r="12" fill="#EB001B"></circle>
-          <circle cx="54" cy="16" r="12" fill="#F79E1B" opacity=".92"></circle>
+      <span class="footer-payment-logo footer-payment-logo-mpesa" title="M-Pesa">
+        <svg viewBox="0 0 120 36" role="img" aria-label="M-Pesa">
+          <path d="M12 5h20c3.3 0 6 2.7 6 6v14c0 3.3-2.7 6-6 6H12c-3.3 0-6-2.7-6-6V11c0-3.3 2.7-6 6-6Z" fill="#2E7D32"/>
+          <path d="M16 12h8l4 11 4-11h8v13h-5V17l-5 8h-4l-5-8v8h-5V12Z" fill="#fff"/>
+          <text x="46" y="24" fill="#1B8F3A" font-size="17" font-weight="900" font-family="Arial, sans-serif">M-PESA</text>
         </svg>
       </span>
-      <span class="footer-payment-logo footer-payment-logo-amex" title="American Express"><strong>AMEX</strong></span>
+      <span class="footer-payment-logo" title="Visa">
+        <svg viewBox="0 0 120 36" role="img" aria-label="Visa">
+          <path d="M18 25 24 10h8l-9 20h-8L10 10h8l3 12 5-12h7L18 25Zm19 5h-7l5-20h7l-5 20Zm27-19-1 6c-2-1-4-1.6-6-1.6-2 0-3 .6-3 1.5 0 1 1.2 1.5 3.6 2.5 4 1.7 5.7 3.5 5.6 6.1-.1 3.2-3.2 5-8 5-3.3 0-6.2-.8-8-1.9l1.1-6.2c1.8 1.2 4.4 2 6.9 2 2 0 3.2-.6 3.2-1.6 0-.9-1-1.5-3.9-2.7-3.4-1.5-5.1-3.2-5.1-5.8 0-3.1 3.1-5.2 7.7-5.2 2.8 0 5.1.6 6.9 1.4Zm17 19-.8-3h-8.6l-1.4 3h-7.4l10-20h8.9l5.8 20H81Zm-3.7-14-3 6.5H79L77.3 16Z" fill="#1A1F71"/>
+        </svg>
+      </span>
+      <span class="footer-payment-logo" title="Mastercard">
+        <svg viewBox="0 0 120 36" role="img" aria-label="Mastercard">
+          <circle cx="50" cy="18" r="13" fill="#EB001B"></circle>
+          <circle cx="70" cy="18" r="13" fill="#F79E1B"></circle>
+          <path d="M60 8.5A13 13 0 0 1 60 27.5 13 13 0 0 1 60 8.5Z" fill="#FF5F00"></path>
+        </svg>
+      </span>
+      <span class="footer-payment-logo footer-payment-logo-amex" title="American Express">
+        <svg viewBox="0 0 120 36" role="img" aria-label="American Express">
+          <rect x="8" y="6" width="104" height="24" rx="4" fill="#2E77BC"/>
+          <text x="17" y="17" fill="#fff" font-size="9" font-weight="900" font-family="Arial, sans-serif" letter-spacing=".8">AMERICAN</text>
+          <text x="17" y="27" fill="#fff" font-size="12" font-weight="900" font-family="Arial, sans-serif" letter-spacing=".4">EXPRESS</text>
+        </svg>
+      </span>
       <span class="footer-payment-logo" title="PayPal">
-        <svg viewBox="0 0 96 32" role="img" aria-label="PayPal"><text x="4" y="22" fill="#003087" font-size="18" font-weight="800" font-family="Arial, sans-serif">Pay</text><text x="38" y="22" fill="#009CDE" font-size="18" font-weight="800" font-family="Arial, sans-serif">Pal</text></svg>
+        <svg viewBox="0 0 120 36" role="img" aria-label="PayPal">
+          <path d="M18 8h15c5 0 8 3 7 7-1 5-5 8-11 8h-5l-2 7h-8l4-22Z" fill="#003087"/>
+          <path d="M25 13h14c4.6 0 7.4 2.8 6.5 6.8-1 4.8-4.8 7.6-10.6 7.6h-5l-1.3 5.6h-7.3L25 13Z" fill="#009CDE" opacity=".92"/>
+          <text x="50" y="24" fill="#003087" font-size="18" font-weight="900" font-family="Arial, sans-serif">Pay</text>
+          <text x="83" y="24" fill="#009CDE" font-size="18" font-weight="900" font-family="Arial, sans-serif">Pal</text>
+        </svg>
       </span>
       <span class="footer-payment-logo" title="Google Pay">
-        <svg viewBox="0 0 96 32" role="img" aria-label="Google Pay"><text x="3" y="22" fill="#4285F4" font-size="18" font-weight="800" font-family="Arial, sans-serif">G</text><text x="22" y="22" fill="#202124" font-size="17" font-weight="700" font-family="Arial, sans-serif">Pay</text></svg>
+        <svg viewBox="0 0 120 36" role="img" aria-label="Google Pay">
+          <path d="M27.5 18.4c0-.9-.1-1.8-.2-2.6H16v4.8h6.4c-.3 1.6-1.1 2.9-2.4 3.8v3.1h3.9c2.3-2.1 3.6-5.2 3.6-9.1Z" fill="#4285F4"/>
+          <path d="M16 30c3.2 0 5.9-1.1 7.9-2.9L20 24c-1.1.7-2.4 1.1-4 1.1-3.1 0-5.8-2.1-6.7-5H5.2v3.2C7.2 27.3 11.3 30 16 30Z" fill="#34A853"/>
+          <path d="M9.3 20.1c-.2-.7-.4-1.4-.4-2.1s.1-1.4.4-2.1v-3.2H5.2A12 12 0 0 0 4 18c0 1.9.4 3.7 1.2 5.3l4.1-3.2Z" fill="#FBBC04"/>
+          <path d="M16 10.9c1.8 0 3.3.6 4.5 1.8l3.5-3.4C21.9 7.3 19.2 6 16 6c-4.7 0-8.8 2.7-10.8 6.7l4.1 3.2c.9-2.9 3.6-5 6.7-5Z" fill="#EA4335"/>
+          <text x="38" y="24" fill="#202124" font-size="18" font-weight="700" font-family="Arial, sans-serif">Pay</text>
+        </svg>
       </span>
     </div>
     <div class="social-links">

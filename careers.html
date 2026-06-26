@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Careers | Unimatch Nexus Foundation</title>
+<meta name="description" content="Careers at Unimatch Nexus Foundation. Join a mission-driven team expanding education, mentorship, digital skills, STEM access, rural outreach, and entrepreneurship support across Kenya." />
+<meta name="theme-color" content="#1B4FD8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue: #1B4FD8;
+    --green: #2E7D32;
+    --orange: #F57C00;
+    --red: #C62828;
+    --sun: #FDD835;
+    --dark: #0D1B2A;
+    --light: #F4F7F2;
+    --white: #FFFFFF;
+    --text: #1C2B1E;
+    --muted: #5A6E5C;
+    --line: rgba(13,27,42,.1);
+    --shadow: 0 18px 60px rgba(13,27,42,.12);
+    --container: 1120px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+  body {
+    min-width: 320px;
+    background: var(--white);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid rgba(27,79,216,.38); outline-offset: 4px; }
+  ::selection { background: rgba(253,216,53,.55); color: var(--dark); }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255,255,255,.95);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    max-width: var(--container);
+    min-height: 78px;
+    margin: 0 auto;
+    padding: .8rem 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+  .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+  .brand img { width: 52px; height: 52px; object-fit: contain; }
+  .brand strong {
+    display: block;
+    color: var(--blue);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.08rem;
+    line-height: 1;
+  }
+  .brand span span {
+    display: block;
+    color: var(--green);
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+  .nav-actions { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+  .nav-link {
+    color: var(--text);
+    font-size: .9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .nav-cta {
+    border-radius: 999px;
+    background: var(--orange);
+    color: var(--white);
+    padding: .65rem 1.1rem;
+    font-size: .9rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .hero {
+    min-height: 640px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 42%);
+    align-items: stretch;
+    background: var(--dark);
+    color: var(--white);
+  }
+  .hero-copy {
+    padding: clamp(4rem, 8vw, 7rem) 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-inner { max-width: 680px; margin-left: auto; }
+  .eyebrow {
+    color: var(--sun);
+    font-family: 'Space Mono', monospace;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin-top: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6.8rem);
+    line-height: .88;
+    letter-spacing: 0;
+  }
+  .hero-copy p {
+    max-width: 620px;
+    margin-top: 1.35rem;
+    color: rgba(255,255,255,.78);
+    font-size: clamp(1rem, 1.7vw, 1.18rem);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    border-radius: 999px;
+    padding: .75rem 1.25rem;
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--orange); color: var(--white); }
+  .btn-secondary { border: 1px solid rgba(255,255,255,.34); color: var(--white); }
+  .hero-image { position: relative; min-height: 420px; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(13,27,42,.2), rgba(13,27,42,0));
+    pointer-events: none;
+  }
+
+  section { padding: clamp(4.5rem, 8vw, 6.5rem) 4vw; }
+  .section-inner { max-width: var(--container); margin: 0 auto; }
+  .section-head { max-width: 780px; margin-bottom: 2.5rem; }
+  .section-label {
+    color: var(--orange);
+    font-family: 'Space Mono', monospace;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+  h2 {
+    margin-top: .65rem;
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: .98;
+  }
+  .section-head p { margin-top: 1rem; color: var(--muted); font-size: 1.02rem; }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .photo-card {
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 38px rgba(13,27,42,.08);
+  }
+  .photo-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .photo-card-body { padding: 1rem; }
+  .photo-card h3 {
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.18rem;
+    line-height: 1.2;
+  }
+  .photo-card p { margin-top: .55rem; color: var(--muted); font-size: .92rem; }
+
+  .values { background: var(--light); }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .value-card {
+    min-height: 210px;
+    border-radius: 8px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 1.4rem;
+    box-shadow: 0 10px 30px rgba(13,27,42,.06);
+  }
+  .value-card strong {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(27,79,216,.1);
+    color: var(--blue);
+    font-family: 'Space Mono', monospace;
+    margin-bottom: 1rem;
+  }
+  .value-card h3 { color: var(--dark); font-size: 1.08rem; margin-bottom: .45rem; }
+  .value-card p { color: var(--muted); font-size: .94rem; }
+
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .role-card {
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    padding: clamp(1.15rem, 3vw, 1.6rem);
+    box-shadow: 0 10px 30px rgba(13,27,42,.06);
+  }
+  .role-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: .8rem;
+  }
+  .pill {
+    border-radius: 999px;
+    background: var(--light);
+    color: var(--muted);
+    padding: .32rem .65rem;
+    font-size: .75rem;
+    font-weight: 800;
+  }
+  .role-card h3 {
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    line-height: 1.16;
+  }
+  .role-card p { margin-top: .7rem; color: var(--muted); }
+  .role-card ul { margin-top: .9rem; padding-left: 1.1rem; color: var(--muted); }
+  .role-card li + li { margin-top: .35rem; }
+
+  .apply {
+    background: linear-gradient(135deg, var(--blue), #0D2E8A);
+    color: var(--white);
+  }
+  .apply-grid {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .apply h2 { color: var(--white); }
+  .apply p { margin-top: 1rem; color: rgba(255,255,255,.78); }
+  .apply-list {
+    display: grid;
+    gap: .85rem;
+    list-style: none;
+  }
+  .apply-list li {
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.16);
+    color: rgba(255,255,255,.84);
+  }
+  .apply-list strong { display: block; color: var(--sun); margin-bottom: .25rem; }
+
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.66);
+    padding: 2rem 4vw;
+  }
+  .footer-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: .9rem;
+  }
+  .footer-inner a { color: rgba(255,255,255,.78); text-decoration: none; }
+
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-inner { margin-left: 0; }
+    .hero-image { min-height: 360px; }
+    .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .values-grid { grid-template-columns: 1fr; }
+    .roles-grid { grid-template-columns: 1fr; }
+    .apply-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .nav-inner { align-items: flex-start; flex-direction: column; }
+    .nav-actions { width: 100%; }
+    .nav-cta { flex: 1; text-align: center; }
+    .photo-grid { grid-template-columns: 1fr; }
+    .hero-actions a { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<nav aria-label="Careers page navigation">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="images/unimatch nexus logo.png" alt="Unimatch Nexus Foundation" />
+      <span><strong>Unimatch Nexus</strong><span>Foundation</span></span>
+    </a>
+    <div class="nav-actions">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="index.html#programs">Programs</a>
+      <a class="nav-cta" href="#apply">Apply Interest</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-copy">
+    <div class="hero-inner">
+      <span class="eyebrow">Careers at Unimatch Nexus Foundation</span>
+      <h1>Build work that changes futures.</h1>
+      <p>Join a mission-driven team helping young Kenyans access education, mentorship, digital skills, STEM opportunities, rural outreach, and entrepreneurship support.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#open-roles">View Roles</a>
+        <a class="btn-secondary" href="#life">Life at the Foundation</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="images/career-team-collaboration.png" alt="Unimatch Nexus Foundation team collaborating on program plans" />
+  </div>
+</header>
+
+<main>
+  <section id="life">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-label">Where You Can Serve</span>
+        <h2>Work close to people, purpose, and possibility.</h2>
+        <p>Our team combines office strategy, field delivery, digital learning, and one-on-one mentorship. Every role is expected to protect dignity, act with integrity, and keep learners at the center.</p>
+      </div>
+      <div class="photo-grid">
+        <article class="photo-card">
+          <img src="images/career-team-collaboration.png" alt="Foundation team collaborating in a bright office" />
+          <div class="photo-card-body">
+            <h3>Program Strategy</h3>
+            <p>Collaborate with colleagues to plan scholarship support, partnerships, donor reporting, and measurable program delivery.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="images/career-field-outreach.png" alt="Foundation field officer speaking with students and community members" />
+          <div class="photo-card-body">
+            <h3>Field Outreach</h3>
+            <p>Work directly with schools and communities to identify needs, coordinate activities, and keep support grounded in real life.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="images/career-digital-trainer.png" alt="Digital skills trainer guiding students in a computer lab" />
+          <div class="photo-card-body">
+            <h3>Digital Learning</h3>
+            <p>Help learners gain practical technology confidence through guided labs, online safety, research skills, and creative projects.</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="images/career-youth-mentor.png" alt="Youth mentor guiding students through career planning" />
+          <div class="photo-card-body">
+            <h3>Mentorship</h3>
+            <p>Support students as they set goals, make informed choices, build confidence, and prepare for the next stage of life.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-label">How We Work</span>
+        <h2>We are looking for people with skill and heart.</h2>
+        <p>Talent matters, but so does character. The strongest candidates bring discipline, humility, initiative, and deep respect for the communities we serve.</p>
+      </div>
+      <div class="values-grid">
+        <article class="value-card">
+          <strong>01</strong>
+          <h3>Serve With Dignity</h3>
+          <p>We never reduce people to need. We listen carefully, communicate respectfully, and design support that preserves agency.</p>
+        </article>
+        <article class="value-card">
+          <strong>02</strong>
+          <h3>Deliver With Excellence</h3>
+          <p>We value clear planning, honest reporting, careful follow-up, and work that donors, schools, students, and partners can trust.</p>
+        </article>
+        <article class="value-card">
+          <strong>03</strong>
+          <h3>Learn and Improve</h3>
+          <p>We test ideas, measure outcomes, welcome feedback, and keep improving how we support young people across Kenya.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="open-roles">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-label">Career Pathways</span>
+        <h2>Roles we regularly build around.</h2>
+        <p>Current openings may change, but these are the kinds of people we look for as our programs grow.</p>
+      </div>
+      <div class="roles-grid">
+        <article class="role-card">
+          <div class="role-meta"><span class="pill">Programs</span><span class="pill">Full-time / Project-based</span></div>
+          <h3>Program Officer</h3>
+          <p>Coordinate school visits, learner follow-up, mentorship sessions, partner activities, and program reporting.</p>
+          <ul>
+            <li>Strong field coordination and communication skills.</li>
+            <li>Experience with education, youth work, or community programs.</li>
+            <li>Comfortable with data, reports, and stakeholder follow-up.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-meta"><span class="pill">Technology</span><span class="pill">Trainer / Facilitator</span></div>
+          <h3>Digital Skills Trainer</h3>
+          <p>Lead practical digital literacy sessions and help students build confidence using technology for learning and opportunity.</p>
+          <ul>
+            <li>Strong computer, internet, and presentation skills.</li>
+            <li>Patient teaching style for beginners.</li>
+            <li>Ability to manage classroom energy and learning outcomes.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-meta"><span class="pill">Partnerships</span><span class="pill">Donor Relations</span></div>
+          <h3>Partnerships Associate</h3>
+          <p>Build relationships with companies, schools, NGOs, media partners, and donors who want to support meaningful education work.</p>
+          <ul>
+            <li>Excellent writing, follow-up, and presentation ability.</li>
+            <li>Confidence preparing proposals and impact updates.</li>
+            <li>Strong relationship management and professionalism.</li>
+          </ul>
+        </article>
+        <article class="role-card">
+          <div class="role-meta"><span class="pill">Mentorship</span><span class="pill">Volunteer / Part-time</span></div>
+          <h3>Youth Mentor</h3>
+          <p>Guide students through academic confidence, career exploration, life skills, goal-setting, and transitions after school.</p>
+          <ul>
+            <li>Strong listening skills and emotional maturity.</li>
+            <li>Commitment to safeguarding and positive youth development.</li>
+            <li>Ability to show up consistently and communicate clearly.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply" class="apply">
+    <div class="apply-grid">
+      <div>
+        <span class="eyebrow">Apply Interest</span>
+        <h2>Ready to serve with us?</h2>
+        <p>Send your CV, role of interest, location, and a short note explaining how your skills can strengthen our mission. We review applications as opportunities become available.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="mailto:careers@unimatchnexus.org?subject=Career%20Interest%20-%20Unimatch%20Nexus%20Foundation">Email Careers Team</a>
+          <a class="btn-secondary" href="index.html#contact">Contact Us</a>
+        </div>
+      </div>
+      <ul class="apply-list">
+        <li><strong>What to include</strong>Your CV, role of interest, county or location, availability, and relevant portfolio or references.</li>
+        <li><strong>What we value</strong>Integrity, care for young people, practical execution, accountability, and willingness to work in communities.</li>
+        <li><strong>Safeguarding</strong>Roles involving students may require reference checks, interviews, and safeguarding commitments before engagement.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Unimatch Nexus Foundation. All rights reserved.</span>
+    <span><a href="index.html">Home</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>
