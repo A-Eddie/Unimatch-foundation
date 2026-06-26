@@ -40,6 +40,16 @@ const DONATION_PROGRAMS = new Set([
 const MPESA_PAYMENTS_FILE = path.join(DATA_DIR, 'mpesa-payments.jsonl');
 const MPESA_CALLBACKS_FILE = path.join(DATA_DIR, 'mpesa-callbacks.jsonl');
 const BANK_DONATIONS_FILE = path.join(DATA_DIR, 'bank-donations.jsonl');
+const GATEWAY_DONATIONS_FILE = path.join(DATA_DIR, 'gateway-donations.jsonl');
+const PAYMENT_METHODS = new Map([
+  ['mpesa', { label: 'M-Pesa STK Push', type: 'mobile_money' }],
+  ['bank', { label: 'Bank Transfer', type: 'bank' }],
+  ['visa', { label: 'Visa', type: 'card' }],
+  ['mastercard', { label: 'Mastercard', type: 'card' }],
+  ['american_express', { label: 'American Express', type: 'card' }],
+  ['paypal', { label: 'PayPal', type: 'wallet' }],
+  ['google_pay', { label: 'Google Pay', type: 'wallet' }]
+]);
 
 function loadEnvFile() {
   try {
@@ -154,10 +164,10 @@ function validateMpesaPayment(payload) {
   if (!donorName) errors.donorName = 'Full name is required.';
   if (!donorEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(donorEmail)) errors.donorEmail = 'A valid email address is required.';
   if (!DONATION_PROGRAMS.has(program)) errors.program = 'Please choose the program you want to support.';
-  if (!['mpesa', 'bank'].includes(paymentMethod)) errors.paymentMethod = 'Choose M-Pesa or bank transfer.';
+  if (!PAYMENT_METHODS.has(paymentMethod)) errors.paymentMethod = 'Choose a supported payment method.';
   if (paymentMethod === 'mpesa' && !phone) errors.phone = 'Use a valid Safaricom number, for example 07XXXXXXXX.';
   if (!Number.isFinite(amount) || amount < 1) errors.amount = 'Amount must be at least KES 1.';
-  if (amount > 150000) errors.amount = 'Amount cannot exceed the M-Pesa transaction limit.';
+  if (paymentMethod === 'mpesa' && amount > 150000) errors.amount = 'Amount cannot exceed the M-Pesa transaction limit.';
 
   return {
     errors,
@@ -190,6 +200,37 @@ function getMissingDarajaConfig(config) {
   return Object.entries(config)
     .filter(([, value]) => !value)
     .map(([key]) => key);
+}
+
+function getGatewayPaymentUrl(paymentMethod) {
+  if (paymentMethod === 'paypal') return process.env.PAYPAL_DONATE_URL || '';
+  if (paymentMethod === 'google_pay') return process.env.GOOGLE_PAY_PAYMENT_URL || process.env.STRIPE_PAYMENT_LINK || '';
+  if (['visa', 'mastercard', 'american_express'].includes(paymentMethod)) {
+    return process.env.CARD_PAYMENT_URL || process.env.STRIPE_PAYMENT_LINK || '';
+  }
+  return '';
+}
+
+function getGatewaySetupHint(paymentMethod) {
+  if (paymentMethod === 'paypal') return 'Add PAYPAL_DONATE_URL to .env to send donors to PayPal checkout.';
+  if (paymentMethod === 'google_pay') return 'Connect Google Pay through a provider such as Stripe or Flutterwave, then set GOOGLE_PAY_PAYMENT_URL or STRIPE_PAYMENT_LINK.';
+  return 'Connect a card processor such as Stripe, Flutterwave, Pesapal, or DPO, then set CARD_PAYMENT_URL or STRIPE_PAYMENT_LINK.';
+}
+
+function getPaymentMethodsPayload() {
+  return [...PAYMENT_METHODS.entries()].map(([id, method]) => ({
+    id,
+    label: method.label,
+    type: method.type,
+    configured: id === 'mpesa'
+      ? getMissingDarajaConfig(getDarajaConfig()).length === 0
+      : id === 'bank' || Boolean(getGatewayPaymentUrl(id)),
+    setupHint: id === 'mpesa'
+      ? 'Configure Daraja keys in .env for live STK Push.'
+      : id === 'bank'
+        ? 'Configure bank account details in .env.'
+        : getGatewaySetupHint(id)
+  }));
 }
 
 function getDarajaTimestamp() {
@@ -276,6 +317,42 @@ async function handleMpesaPayment(req, res) {
         paymentMethod: 'bank',
         bankDetails,
         message: 'Thank you. Your bank transfer details have been recorded. Please use the bank details shown to complete your donation.'
+      });
+      return;
+    }
+
+    if (data.paymentMethod !== 'mpesa') {
+      const requestId = crypto.randomUUID();
+      const method = PAYMENT_METHODS.get(data.paymentMethod);
+      const redirectUrl = getGatewayPaymentUrl(data.paymentMethod);
+      const status = redirectUrl ? 'gateway-checkout-ready' : 'gateway-setup-required';
+
+      await appendJsonLine(GATEWAY_DONATIONS_FILE, {
+        id: requestId,
+        createdAt: new Date().toISOString(),
+        status,
+        donorName: data.donorName,
+        donorEmail: data.donorEmail,
+        program: data.program,
+        note: data.note,
+        phone: data.phone,
+        amount: data.amount,
+        paymentMethod: data.paymentMethod,
+        paymentLabel: method.label,
+        redirectUrl: redirectUrl || null
+      });
+
+      sendJson(res, 200, {
+        ok: true,
+        id: requestId,
+        paymentMethod: data.paymentMethod,
+        paymentLabel: method.label,
+        status,
+        redirectUrl: redirectUrl || null,
+        setupRequired: !redirectUrl,
+        message: redirectUrl
+          ? `Thank you. Continue to ${method.label} checkout to complete your donation.`
+          : `Thank you. Your ${method.label} donation request has been recorded. ${getGatewaySetupHint(data.paymentMethod)}`
       });
       return;
     }
@@ -543,7 +620,16 @@ function createServer() {
           environment: process.env.DARAJA_ENV === 'production' ? 'production' : 'sandbox',
           configured: missingDarajaConfig.length === 0,
           missingConfig: missingDarajaConfig
-        }
+        },
+        paymentMethods: getPaymentMethodsPayload()
+      });
+      return;
+    }
+
+    if (req.url === '/api/payment-methods') {
+      sendJson(res, 200, {
+        ok: true,
+        paymentMethods: getPaymentMethodsPayload()
       });
       return;
     }
